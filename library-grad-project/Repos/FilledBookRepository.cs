@@ -1,11 +1,31 @@
-﻿using LibraryGradProject.Models;
+﻿using System;
+using LibraryGradProject.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 
 namespace LibraryGradProject.Repos
 {
-    public class BookRepository : IRepository<Book>
+    public class FilledBookRepository : IRepository<Book>
     {
+        //private List<Book> _filledBookCollection = new List<Book>();
+
+        public FilledBookRepository()
+        {
+            //Add(new Book { Title = "American Psycho", ISBN = "9781613470190", Author = "Brett Easton Ellis", PublishDate = "1991" });
+            //Add(new Book { Title = "Name of the Wind", ISBN = "9788580410631", Author = "Patrick Rothfuss", PublishDate = "2007" });
+
+            //using (var context = new LibraryContext())
+            //{
+            //    System.Diagnostics.Debug.WriteLine("hi");
+            //    var array = context.Books.SqlQuery("SELECT * FROM BOOKS").ToList();
+            //    var first = array[0].Author;
+            //    System.Diagnostics.Debug.WriteLine(array);
+            //    System.Diagnostics.Debug.WriteLine(first);
+
+            //}
+        }
+
         public void Add(Book entity)
         {
             System.Diagnostics.Debug.WriteLine("adding entity");
@@ -52,6 +72,5 @@ namespace LibraryGradProject.Repos
                 context.SaveChanges();
             }
         }
-
     }
 }

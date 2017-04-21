@@ -23,6 +23,7 @@ namespace LibraryGradProject
 
             // Register types
             builder.RegisterType<BookRepository>().As<IRepository<Book>>().SingleInstance();
+            builder.RegisterType<BookReservationRepository>().As<IRepository<BookReservation>>().SingleInstance();
 
             // Set the dependency resolver to be Autofac
             var container = builder.Build();
