@@ -11,10 +11,10 @@ namespace LibraryGradProject.Repos
     {
         private List<BookReservation> _bookReservationCollection = new List<BookReservation>();
 
-        public FilledBookReservationRepository()
-        {
-            Add(new BookReservation { Book = 0, Time = new DateTime(2017, 5, 2) });
-        }
+        //public FilledBookReservationRepository()
+        //{
+        //    Add(new BookReservation { Book = 0, Time = new DateTime(2017, 5, 2) });
+        //}
 
         public void Add(BookReservation entity)
         {

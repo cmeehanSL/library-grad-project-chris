@@ -31,8 +31,10 @@ namespace LibraryGradProject.Controllers
         }
 
         // POST api/<controller>
-        public void Post(BookReservation newBookReservation)
+        public void Post(BookReservationClientSide request)
         {
+            BookReservation newBookReservation = BookReservationRepository.generateReservationFromRequest(request);
+
             _bookReservationRepo.Add(newBookReservation);
         }
 

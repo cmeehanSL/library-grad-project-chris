@@ -13,5 +13,12 @@ namespace LibraryGradProject.Models
 
         public DbSet<Book> Books { get; set; }
         public DbSet<BookReservation> BookReservations { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<LibraryContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
     }
+
 }

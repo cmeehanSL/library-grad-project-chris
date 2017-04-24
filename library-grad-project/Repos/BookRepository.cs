@@ -25,8 +25,8 @@ namespace LibraryGradProject.Repos
             using (var context = new LibraryContext())
             {
                 System.Diagnostics.Debug.WriteLine("hi");
-                var firstAuthor = context.Books.Find(1);
-                System.Diagnostics.Debug.WriteLine(firstAuthor.Author);
+                //var firstAuthor = context.Books.Find(1);
+                //System.Diagnostics.Debug.WriteLine(firstAuthor.Author);
 
                 return context.Books.ToList();
             }
