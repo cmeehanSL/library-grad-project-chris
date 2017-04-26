@@ -2,12 +2,13 @@
 using LibraryGradProject.Models;
 using LibraryGradProject.Repos;
 using System.Web;
+using System.Linq;
 using Moq;
 using Xunit;
 
 namespace LibraryGradProjectTests.Controllers
 {
-    class BookReservationsControllerTests
+    public class BookReservationsControllerTests
     {
         [Fact]
         public void Get_Calls_ResRepo_GetAll()
@@ -23,5 +24,8 @@ namespace LibraryGradProjectTests.Controllers
             // Assert
             mockRepo.Verify(mock => mock.GetAll(), Times.Once);
         }
+
+        
+
     }
 }

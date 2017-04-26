@@ -4,16 +4,22 @@ using System.Linq;
 using System.Web;
 using LibraryGradProject.Models;
 using System.Globalization;
+using System.Data.Entity.Infrastructure;
 
 namespace LibraryGradProject.Repos
 {
     public class BookReservationRepository : IRepository<BookReservation>
     {
+        private readonly IDbContextFactory<LibraryContext> _contextFactory;
 
+        public BookReservationRepository(IDbContextFactory<LibraryContext> contextFactory)
+        {
+            this._contextFactory = contextFactory;
+        }
         public static BookReservation generateReservationFromRequest(BookReservationClientSide request)
         {
             BookReservation newBookReservation = new BookReservation();
-            newBookReservation.Book = request.Book;
+            newBookReservation.BookId = request.BookId;
             newBookReservation.Time = DateTime.ParseExact(request.Time, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
 
             return newBookReservation;
@@ -24,19 +30,16 @@ namespace LibraryGradProject.Repos
         public void Add(BookReservation entity)
         {
             System.Diagnostics.Debug.WriteLine("adding book res entity");
-            System.Diagnostics.Debug.WriteLine(entity.Book);
+            System.Diagnostics.Debug.WriteLine(entity.BookId);
             System.Diagnostics.Debug.WriteLine(entity.Time);
 
-            var book = entity.Book;
+            var book = entity.BookId;
 
-
-
-
-            using (var context = new LibraryContext())
+            using (var context = _contextFactory.Create())
             {
                 // Check if there are any other reservations that clash
                 var matchingBooks = context.BookReservations
-                    .Where(res => res.Id == book).ToList();
+                    .Where(res => res.BookId == book).ToList();
 
                 foreach (BookReservation res in matchingBooks)
                 {
@@ -67,7 +70,7 @@ namespace LibraryGradProject.Repos
 
         public IEnumerable<BookReservation> GetAll()
         {
-            using (var context = new LibraryContext())
+            using (var context = _contextFactory.Create())
             {
                 return context.BookReservations.ToList();
             }
@@ -75,7 +78,7 @@ namespace LibraryGradProject.Repos
 
         public BookReservation Get(int id)
         {
-            using (var context = new LibraryContext())
+            using (var context = _contextFactory.Create())
             {
                 var entity = context.BookReservations.Find(id);
 
@@ -85,7 +88,7 @@ namespace LibraryGradProject.Repos
 
         public void Remove(int id)
         {
-            using (var context = new LibraryContext())
+            using (var context = _contextFactory.Create())
             {
                 BookReservation reservationToRemove = context.BookReservations.Find(id);
                 context.BookReservations.Remove(reservationToRemove);

@@ -2,6 +2,7 @@
 using Autofac.Integration.WebApi;
 using LibraryGradProject.Models;
 using LibraryGradProject.Repos;
+using System.Data.Entity.Infrastructure;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -22,6 +23,7 @@ namespace LibraryGradProject
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
 
             // Register types
+            builder.RegisterType<LibraryContextFactory>().As<IDbContextFactory<LibraryContext>>().SingleInstance();
             builder.RegisterType<BookRepository>().As<IRepository<Book>>().SingleInstance();
             builder.RegisterType<BookReservationRepository>().As<IRepository<BookReservation>>().SingleInstance();
 

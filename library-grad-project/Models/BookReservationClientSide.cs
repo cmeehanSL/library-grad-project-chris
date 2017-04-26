@@ -7,7 +7,7 @@ namespace LibraryGradProject.Models
 {
     public class BookReservationClientSide
     {
-        public int Book { get; set; }
+        public int BookId { get; set; }
         public string Time { get; set; }
 
     }

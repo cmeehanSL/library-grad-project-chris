@@ -9,12 +9,13 @@ namespace LibraryGradProject.Controllers
     public class BooksController : ApiController
     {
         private IRepository<Book> _bookRepo;
-        
+        //private LibraryContextFactory _contextFactory;
+
         public BooksController(IRepository<Book> bookRepository)
         {
             _bookRepo = bookRepository;
         }
-        
+
         // GET api/books
         public IEnumerable<Book> Get()
         {
@@ -42,7 +43,7 @@ namespace LibraryGradProject.Controllers
         // PUT api/values/{int}
         public void Put(Book newBook)
         {
-            int id = newBook.Id;
+            int id = newBook.BookId;
             _bookRepo.Remove(id);
             _bookRepo.Add(newBook);
 

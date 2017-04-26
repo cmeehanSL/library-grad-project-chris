@@ -41,7 +41,7 @@ namespace LibraryGradProject.Controllers
         // PUT api/<controller>/5
         public void Put(BookReservation modifiedBookReservation)
         {
-            int id = modifiedBookReservation.Id;
+            int id = modifiedBookReservation.BookReservationId;
             _bookReservationRepo.Remove(id);
             _bookReservationRepo.Add(modifiedBookReservation);
         }
