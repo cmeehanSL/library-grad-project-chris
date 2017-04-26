@@ -89,7 +89,6 @@
     <Compile Include="Repos\EffortProviderFactory.cs" />
     <Compile Include="Repos\FakeBookReservationSet.cs" />
     <Compile Include="Repos\FakeBookSet.cs" />
-    <Compile Include="TestsInitalize.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\library-grad-project\library-grad-project.csproj">
