@@ -1,0 +1,50 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": [ "es2015", "dom" ],
+    "module": "commonjs",
+    "types": ["node"],
+    "typeRoots": [
+        "../node_modules/@types"
+    ],
+    "noLib": false,
+    "outDir": "../dist",
+    "preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "reactNamespace": "dom",
+    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "exclude": [
+      "node_modules/*",
+      "**/*-aot.ts"
+    ],
+    "target": "es5"
+  },
+  "compileOnSave": true,
+  "formatCodeOptions": {
+    "baseIndentSize": 0,
+    "indentSize": 2,
+    "tabSize": 2,
+    "newLineCharacter": "\n",
+    "convertTabsToSpaces": true,
+    "indentStyle": "Smart",
+    "insertSpaceAfterCommaDelimiter": true,
+    "insertSpaceAfterSemicolonInForStatements": false,
+    "insertSpaceBeforeAndAfterBinaryOperators": true,
+    "insertSpaceAfterConstructor": false,
+    "insertSpaceAfterKeywordsInControlFlowStatements": true,
+    "insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+    "insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+    "insertSpaceBeforeFunctionParenthesis": false,
+    "placeOpenBraceOnNewLineForFunctions": false,
+    "placeOpenBraceOnNewLineForControlBlocks": false
+  }
+}

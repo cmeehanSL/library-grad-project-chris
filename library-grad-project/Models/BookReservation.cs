@@ -12,6 +12,8 @@ namespace LibraryGradProject.Models
         
         // Foreign Key to Book
         public int BookId { get; set; }
+
+        // Make virtual for lazy loading, get the book when the 'Book' property is dereferenced
         public Book Book { get; set; }
 
     }
