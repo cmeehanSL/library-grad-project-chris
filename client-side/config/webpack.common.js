@@ -37,32 +37,46 @@ var config = {
                 test: /\.scss$/,
                 exclude: helpers.root('src', 'public/app'),
                 loader: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: [
-                        "css-loader",
-                        "sass-loader"
-                    ]
+                        fallback: "style-loader",
+                        use: [
+                            "css-loader",
+                            "sass-loader"
+                        ]
                 })
             },
             {
-                test: /\.scss$/,
+                test: /\.css$/,
                 include: helpers.root('src', 'public/app'),
-                use: [{
-                    loader: "style-loader" // creates style nodes from js strings
-                }, {
-                    loader: "css-loader" // translates CSS into CommonJS
-                }, {
-                    loader: "sass-loader" // compiles Sass to Css
-                }]
+                loader: 'raw-loader'
             },
             {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[hash].[ext]'
+            },
+            {
+                test: /\^favicon?/,
+                loader: 'file-loader?name=favicon.[ext]'
             }
         ]
     },
     plugins: [
-        // new ExtractTextPlugin("./main.css"),
+        // Workaround for angular/angular#11580
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)@angular/,
+            helpers.root('src') // location of your src
+            // {} // a map of your routes
+        ),
+
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)dist|dist)(\\|\/)linker/,
+            helpers.root('dist') // location of your client
+        ),
 
         new webpack.optimize.CommonsChunkPlugin({
             name: ['app', 'vendor', 'polyfills']
