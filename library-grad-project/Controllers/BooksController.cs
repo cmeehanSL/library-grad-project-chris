@@ -3,9 +3,11 @@ using LibraryGradProject.Repos;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LibraryGradProject.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BooksController : ApiController
     {
         private IRepository<Book> _bookRepo;
@@ -19,6 +21,7 @@ namespace LibraryGradProject.Controllers
         // GET api/books
         public IEnumerable<Book> Get()
         {
+            System.Diagnostics.Debug.WriteLine("received get request");
             return _bookRepo.GetAll();
         }
 

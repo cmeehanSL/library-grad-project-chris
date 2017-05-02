@@ -9,7 +9,5 @@ import '../assets/images/favicon.ico';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'Tour of Heroes';
-    myHero = 'windstorm';
-    // books: Book[];
+    title = 'Library App';
 }

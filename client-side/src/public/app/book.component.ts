@@ -8,22 +8,22 @@ import { LibraryService } from './services/library.service'
     templateUrl: './book.component.html',
     styleUrls: ['./book.component.css']
 })
-export class BookComponent implements OnInit {
+export class BookComponent  {
     constructor(private libraryService: LibraryService) {}
     title = 'book1';
     author = 'mr man';
-    book: Book = {
-        BookId: 1,
-        Title: "he"
-    };
+    // book: Book = {
+    //     BookId: 1,
+    //     Title: "he"
+    // };
 
-    ngOnInit(): void {
-        this.getBooks();
-    }
-
-
-    getBooks(): void {
-        this.libraryService.getBooks().then(books => this.book = books[0]);
-    }
+    // ngOnInit(): void {
+    //     this.getBooks();
+    // }
+    //
+    //
+    // getBooks(): void {
+    //     this.libraryService.getBooks().then(books => this.book = books[0]);
+    // }
 
 }

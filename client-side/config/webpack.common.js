@@ -83,7 +83,8 @@ var config = {
         }),
 
         new HtmlWebpackPlugin({
-            template: 'src/public/index.html'
+            template: 'src/public/index.html',
+            favicon: 'src/public/assets/images/favicon.ico'
         })
     ]
 }

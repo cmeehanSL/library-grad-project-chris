@@ -5,3 +5,8 @@ main {
   margin-top: 50px;
   display: block;
 }
+
+img {
+    width:300px;
+    height: auto;
+}

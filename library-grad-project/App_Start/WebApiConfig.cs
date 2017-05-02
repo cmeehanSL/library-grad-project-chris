@@ -13,6 +13,9 @@ namespace LibraryGradProject
             // Return JSON when we access the api via a web browser
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
+            // Enable CORS so requests can be received from different domain
+            config.EnableCors();
+
             // Set up default routing
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
