@@ -46,6 +46,13 @@ var config = {
             },
             {
                 test: /\.css$/,
+                exclude: helpers.root('src', 'public/app'),
+                loader: ExtractTextPlugin.extract({
+                    fallbackLoader: 'style-loader',
+                    loader: 'css-loader?sourceMap' })
+            },
+            {
+                test: /\.css$/,
                 include: helpers.root('src', 'public/app'),
                 loader: 'raw-loader'
             },

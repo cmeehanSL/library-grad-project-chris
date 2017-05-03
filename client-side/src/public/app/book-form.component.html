@@ -1,0 +1,60 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>Book Entry</h1>
+        <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title"
+                required
+                [(ngModel)]="model.Title" name="title"
+            </div>
+
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author"
+                required
+                [(ngModel)]="model.Author" name="author"
+                #author="ngModel">
+                <div [hidden]="author.valid || author.pristine"
+                    class="alert alert-danger">
+                    Author is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" class="form-control" id="isbn"
+                required
+                [(ngModel)]="model.ISBN" name="isbn">
+            </div>
+
+            <div class="form-group">
+                <label for="publishDate">Publish Date</label>
+                <input type="text" class="form-control" id="publishDate"
+                required
+                [(ngModel)]="model.PublishDate" name="publishDate">
+            </div>
+
+            <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted">
+      <h2>You submitted the following:</h2>
+      <div class="row">
+        <div class="col-xs-3">Title</div>
+        <div class="col-xs-9  pull-left">{{ model.Title }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">Author</div>
+        <div class="col-xs-9 pull-left">{{ model.Author }}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">ISBN</div>
+        <div class="col-xs-9 pull-left">{{ model.ISBN }}</div>
+      </div>
+      <br>
+      <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+    </div>
+
+
+</div>
