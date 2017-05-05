@@ -1,40 +1,37 @@
 <div class="container">
     <div [hidden]="submitted">
         <h1>Book Entry</h1>
-        <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title"
-                required
-                [(ngModel)]="model.Title" name="title"
-                #title="ngModel">
-                <div [hidden]="title.valid || title.pristine"
+                required formControlName="title">
+                <!-- <div [hidden]="title.valid || title.pristine"
                     class="alert alert-danger">
                     Title is required
-                </div>
+                </div> -->
             </div>
 
             <div class="form-group">
                 <label for="author">Author</label>
                 <input type="text" class="form-control" id="author"
-                required
-                [(ngModel)]="model.Author" name="author"
-                #author="ngModel">
-                <div [hidden]="author.valid || author.pristine"
+                required formControlName="author">
+                <!-- <div [hidden]="author.valid || author.pristine"
                     class="alert alert-danger">
                     Author is required
-                </div>
+                </div> -->
             </div>
 
             <div class="form-group">
                 <label for="isbn">ISBN</label>
                 <input type="text" class="form-control" id="isbn"
-                required
-                [(ngModel)]="model.ISBN" name="isbn"
-                #isbn="ngModel">
-                <div [hidden]="isbn.valid || isbn.pristine"
+                required formControlName="isbn">
+                <!-- <div [hidden]="isbn.valid || isbn.pristine"
                     class="alert alert-danger">
                     ISBN is required
+                </div> -->
+                <div *ngIf="formErrors.isbn" class="alert alert-danger">
+                    {{ formErrors.isbn }}
                 </div>
 
             </div>
@@ -42,17 +39,15 @@
             <div class="form-group">
                 <label for="publishDate">Publish Date</label>
                 <input type="text" class="form-control" id="publishDate"
-                required
-                [(ngModel)]="model.PublishDate" name="publishDate"
-                #publishDate="ngModel">
-                <div [hidden]="publishDate.valid || publishDate.pristine"
+                required formControlName="publishDate">
+                <!-- <div [hidden]="publishDate.valid || publishDate.pristine"
                     class="alert alert-danger">
                     Publish Date is required
-                </div>
+                </div> -->
 
             </div>
 
-            <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
+            <button type="submit" class="btn btn-success" [disabled]="!bookForm.valid">Submit</button>
         </form>
     </div>
     <div [hidden]="!submitted">
