@@ -7,6 +7,11 @@
                 <input type="text" class="form-control" id="title"
                 required
                 [(ngModel)]="model.Title" name="title"
+                #title="ngModel">
+                <div [hidden]="title.valid || title.pristine"
+                    class="alert alert-danger">
+                    Title is required
+                </div>
             </div>
 
             <div class="form-group">
@@ -25,14 +30,26 @@
                 <label for="isbn">ISBN</label>
                 <input type="text" class="form-control" id="isbn"
                 required
-                [(ngModel)]="model.ISBN" name="isbn">
+                [(ngModel)]="model.ISBN" name="isbn"
+                #isbn="ngModel">
+                <div [hidden]="isbn.valid || isbn.pristine"
+                    class="alert alert-danger">
+                    ISBN is required
+                </div>
+
             </div>
 
             <div class="form-group">
                 <label for="publishDate">Publish Date</label>
                 <input type="text" class="form-control" id="publishDate"
                 required
-                [(ngModel)]="model.PublishDate" name="publishDate">
+                [(ngModel)]="model.PublishDate" name="publishDate"
+                #publishDate="ngModel">
+                <div [hidden]="publishDate.valid || publishDate.pristine"
+                    class="alert alert-danger">
+                    Publish Date is required
+                </div>
+
             </div>
 
             <button type="submit" class="btn btn-success" [disabled]="!bookForm.form.valid">Submit</button>
@@ -53,6 +70,8 @@
         <div class="col-xs-9 pull-left">{{ model.ISBN }}</div>
       </div>
       <br>
+      <button class="btn btn-success" (click)="onConfirm()">Confirm</button>
+      <br/>
       <button class="btn btn-primary" (click)="submitted=false">Edit</button>
     </div>
 
