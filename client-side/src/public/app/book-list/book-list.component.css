@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+#bookList {
+    text-align: left;
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
+
+.bookComponent {
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: green;
+    padding-bottom: 10px;
+}

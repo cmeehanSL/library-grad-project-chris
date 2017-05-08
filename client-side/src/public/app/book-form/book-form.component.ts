@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Book } from './book';
-import { LibraryService } from './services/library.service';
-import { isbnValidator } from './shared/isbn-validator';
+import { Book } from '../shared/book';
+import { LibraryService } from '../services/library.service';
+import { isbnValidator } from '../shared/isbn-validator';
 
 
 @Component({

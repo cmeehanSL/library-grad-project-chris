@@ -10,6 +10,9 @@
                     class="alert alert-danger">
                     Title is required
                 </div> -->
+                <div *ngIf="formErrors.title" class="alert alert-danger">
+                    {{ formErrors.title }}
+                </div>
             </div>
 
             <div class="form-group">
@@ -20,6 +23,9 @@
                     class="alert alert-danger">
                     Author is required
                 </div> -->
+                <div *ngIf="formErrors.author" class="alert alert-danger">
+                    {{ formErrors.author }}
+                </div>
             </div>
 
             <div class="form-group">
@@ -33,7 +39,6 @@
                 <div *ngIf="formErrors.isbn" class="alert alert-danger">
                     {{ formErrors.isbn }}
                 </div>
-
             </div>
 
             <div class="form-group">
@@ -44,7 +49,9 @@
                     class="alert alert-danger">
                     Publish Date is required
                 </div> -->
-
+                <div *ngIf="formErrors.publishDate" class="alert alert-danger">
+                    {{ formErrors.publishDate }}
+                </div>
             </div>
 
             <button type="submit" class="btn btn-success" [disabled]="!bookForm.valid">Submit</button>

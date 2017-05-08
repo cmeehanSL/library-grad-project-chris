@@ -48,8 +48,8 @@ var config = {
                 test: /\.css$/,
                 exclude: helpers.root('src', 'public/app'),
                 loader: ExtractTextPlugin.extract({
-                    fallbackLoader: 'style-loader',
-                    loader: 'css-loader?sourceMap' })
+                    fallback: 'style-loader',
+                    use: 'css-loader?sourceMap' })
             },
             {
                 test: /\.css$/,

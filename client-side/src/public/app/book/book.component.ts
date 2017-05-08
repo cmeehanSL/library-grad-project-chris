@@ -1,17 +1,36 @@
 import { Component } from '@angular/core';
-import { Book } from './book';
+import { Book } from '../shared/book';
 import { OnInit } from '@angular/core';
-import { LibraryService } from './services/library.service'
+import { LibraryService } from '../services/library.service';
 
 @Component({
     selector: 'book-component',
     templateUrl: './book.component.html',
-    styleUrls: ['./book.component.css']
+    styleUrls: ['./book.component.css'],
+    inputs: ['book']
 })
 export class BookComponent  {
     constructor(private libraryService: LibraryService) {}
-    title = 'book1';
-    author = 'mr man';
+
+    book: Book;
+    title: string;
+    reserving = false;
+
+    private reservations: Date[] = [];
+
+    reserve() {
+        this.reserving = true;
+    }
+
+    cancel() {
+        this.reserving = false;
+    }
+
+    onBlur() {
+        this.reserving = false;
+        console.log("blur");
+    }
+
     // book: Book = {
     //     BookId: 1,
     //     Title: "he"

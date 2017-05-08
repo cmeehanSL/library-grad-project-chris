@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { Book } from '../book';
+import { Book } from '../shared/book';
 // import { BOOKS } from '../mock-books';
 import { Logger } from './logger.service';
 const util = require('util');

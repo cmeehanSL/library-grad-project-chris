@@ -1,7 +1,8 @@
 import { Component }    from '@angular/core';
 import { OnInit }       from '@angular/core';
-import { Book } from './book';
-import { LibraryService } from './services/library.service'
+import { Book } from '../shared/book';
+import { LibraryService } from '../services/library.service';
+
 
 @Component({
     selector: 'book-list-component',
@@ -12,7 +13,6 @@ export class BookListComponent implements OnInit {
 
     errorMessage: string;
     books: Book[];
-    mode = 'observable';
 
     constructor (private libraryService: LibraryService){}
 

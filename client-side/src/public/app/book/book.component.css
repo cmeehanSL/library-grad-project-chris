@@ -1,0 +1,28 @@
+main {
+  padding: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-top: 50px;
+  display: block;
+}
+
+h4, h5 {
+    display: inline;
+}
+
+h3, h4 {
+    color: #1266ed;
+    margin-top: 10px;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+.btn {
+    min-width: 100px;
+}
+
+[contenteditable]:focus {
+    outline: 0px solid transparent;
+}

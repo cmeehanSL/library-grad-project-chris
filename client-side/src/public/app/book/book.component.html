@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="bookInfo col col-lg-6 col-sm-6">
+            <h3>{{book.Title}}</h3>
+            <h4>By: </h4><h5>{{book.Author}}</h5><br/>
+            <h5>{{book.PublishDate}}</h5><br/>
+        </div>
+        <div class="actions align-middle col col-lg-6 col-sm-6">
+            <div *ngIf="!reserving; else elseBlock">
+                <button (click)="reserve()" class="btn align-middle btn-outline btn-primary">Reserve</button>
+            </div>
+            <ng-template #elseBlock>
+                <button (click)="cancel()" class="btn align-middle btn-outline btn-danger">Cancel</button>
+            </ng-template>
+        </div>
+    </div>
+
+    <div *ngIf="reserving">
+        <h1>Reserving</h1>
+    </div>
+</div>
