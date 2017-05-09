@@ -1,0 +1,22 @@
+<div class="container" *ngIf="reserving">
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col col-lg-4 col-md-4 col-sm-12">
+                <my-date-picker class="datePicker" formControlName="reservationDate"
+                [options]="myDatePickerOptions"></my-date-picker>
+            </div>
+            <div class="col col-lg-8 col-md-8 col-sm-12">
+                <h3>Reserving</h3>
+            </div>
+            <div class="form-group">
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                    <option selected>Choose...</option>
+                    <option [ngValue]=1>One</option>
+                    <option [ngValue]=2>Two</option>
+                    <option [ngValue]=3 [disabled]="i > numDaysRemaining">Three</option>
+                </select>
+            </div>
+        </div>
+
+    </form>
+</div>

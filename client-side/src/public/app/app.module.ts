@@ -9,15 +9,18 @@ import { BookComponent } from './book/book.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookFormComponent } from './book-form/book-form.component';
 import { DashboardComponent } from './dashboard.component';
-// import { BackendService } from './services/backend.service';
+import { ReservationComponent } from './reservation/reservation.component';
 import { LibraryService } from './services/library.service';
 import { Logger } from './services/logger.service';
+
+import { MyDatePickerModule } from 'mydatepicker';
 
 
 @NgModule({
     imports: [
         BrowserModule,
         HttpModule,
+        MyDatePickerModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
             {
@@ -44,7 +47,8 @@ import { Logger } from './services/logger.service';
         BookComponent,
         BookListComponent,
         DashboardComponent,
-        BookFormComponent
+        BookFormComponent,
+        ReservationComponent
     ],
     bootstrap: [AppComponent],
     providers: [

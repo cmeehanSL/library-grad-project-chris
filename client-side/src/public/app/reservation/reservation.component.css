@@ -1,0 +1,14 @@
+.ng-invalid:not(form) {
+    border-left: none;
+}
+
+form {
+    margin-top: 10px;
+}
+
+h3 {
+    height: 34px;
+    line-height: 34px;
+    margin: 0 0 0 0;
+    vertical-align: middle;
+}
