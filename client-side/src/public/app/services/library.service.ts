@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Book } from '../shared/book';
+import { BookReservation } from '../shared/bookReservation';
 // import { BOOKS } from '../mock-books';
 import { Logger } from './logger.service';
 const util = require('util');
@@ -16,6 +17,7 @@ const util = require('util');
 export class LibraryService {
     private books: Book[] = [];
     private booksUrl = 'http://localhost:51918/api/books'; // URL to web API
+    private reservationsUrl = 'http://localhost:51918/api/bookreservations'; // URL to web API
 
     constructor(
         private http: Http,
@@ -58,6 +60,15 @@ export class LibraryService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.booksUrl, newBook, options)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
+
+    reserve(newReservation: BookReservation): Observable<BookReservation> {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.reservationsUrl, newReservation, options)
                         .map(this.extractData)
                         .catch(this.handleError);
     }

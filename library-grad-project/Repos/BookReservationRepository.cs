@@ -20,7 +20,8 @@ namespace LibraryGradProject.Repos
         {
             BookReservation newBookReservation = new BookReservation();
             newBookReservation.BookId = request.BookId;
-            newBookReservation.Time = DateTime.ParseExact(request.Time, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            newBookReservation.ReservationLength = request.ReservationLength;
+            newBookReservation.Date = DateTime.ParseExact(request.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
             return newBookReservation;
         }
@@ -31,7 +32,7 @@ namespace LibraryGradProject.Repos
         {
             System.Diagnostics.Debug.WriteLine("adding book res entity");
             System.Diagnostics.Debug.WriteLine(entity.BookId);
-            System.Diagnostics.Debug.WriteLine(entity.Time);
+            System.Diagnostics.Debug.WriteLine(entity.Date);
 
             var book = entity.BookId;
 
@@ -43,9 +44,9 @@ namespace LibraryGradProject.Repos
 
                 foreach (BookReservation res in matchingBooks)
                 {
-                    System.Diagnostics.Debug.WriteLine("Reservation found for same Book on the following date: " + res.Time);
+                    System.Diagnostics.Debug.WriteLine("Reservation found for same Book on the following date: " + res.Date);
 
-                    double daysDifference = Math.Abs((res.Time - entity.Time).TotalDays);
+                    double daysDifference = Math.Abs((res.Date - entity.Date).TotalDays);
 
                     System.Diagnostics.Debug.WriteLine("Days difference between reservations is:" + daysDifference);
 

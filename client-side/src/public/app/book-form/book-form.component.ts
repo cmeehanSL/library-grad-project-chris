@@ -26,6 +26,8 @@ export class BookFormComponent {
     onSubmit() {
         this.submitted = true;
         this.model = this.bookForm.value;
+
+        console.log(this.model);
     }
 
 
@@ -58,7 +60,7 @@ export class BookFormComponent {
                                 book    => console.log("added book " + book.Title),
                                 error   => this.errorMessage = <any>error);
 
-        this.submitted = true;
+        this.submitted = false;
     }
 
     onValueChanged(data?: any) {

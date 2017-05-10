@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using LibraryGradProject.Models;
 using LibraryGradProject.Repos;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace LibraryGradProject.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class BookReservationsController : ApiController
     {
         private IRepository<BookReservation> _bookReservationRepo;

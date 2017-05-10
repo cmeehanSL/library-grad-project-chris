@@ -136,13 +136,13 @@ namespace LibraryGradProjectTests.Repos
             // Arrange
             prepareInMemDb();
 
-            DateTime time1 = DateTime.ParseExact("04/06/2017 15:00:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
-            DateTime time2 = DateTime.ParseExact("05/06/2017 16:00:00", "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            DateTime time1 = DateTime.ParseExact("04/06/2017", "d", CultureInfo.InvariantCulture);
+            DateTime time2 = DateTime.ParseExact("05/06/2017", "d", CultureInfo.InvariantCulture);
 
 
-            BookReservation newRes1 = new BookReservation() { BookReservationId = 1, BookId = 1, Time = time1 };
-            BookReservation newRes2 = new BookReservation() { BookReservationId = 2, BookId = 1, Time = time2 };
-            BookReservation newRes3 = new BookReservation() { BookReservationId = 3, BookId = 2, Time = time2 };
+            BookReservation newRes1 = new BookReservation() { BookReservationId = 1, BookId = 1, Date = time1 };
+            BookReservation newRes2 = new BookReservation() { BookReservationId = 2, BookId = 1, Date = time2 };
+            BookReservation newRes3 = new BookReservation() { BookReservationId = 3, BookId = 2, Date = time2 };
             repo.Add(newRes1);
             repo.Add(newRes2);
             repo.Add(newRes3);

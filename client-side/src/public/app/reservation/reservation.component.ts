@@ -1,4 +1,4 @@
-import { Component, OnInit }                            from '@angular/core';
+import { Component, EventEmitter, OnInit, Output }                            from '@angular/core';
 import { FormGroup, FormBuilder, Validators }           from '@angular/forms';
 import { trigger, state, style, animate, transition }   from '@angular/animations'
 
@@ -27,6 +27,10 @@ import { IMyOptions } from 'mydatepicker';
 export class ReservationComponent implements OnInit {
     reserving: false;
     private reservationForm: FormGroup;
+    errorMessage: string;
+
+    @Output() reservingChange = new EventEmitter<boolean>();
+
 
     // reservationLength: 0;
     private placeholder: string = 'Select a date';
@@ -37,9 +41,18 @@ export class ReservationComponent implements OnInit {
     private model: BookReservation;
 
     onSubmit() {
-        this.model.Time = this.reservationForm.value.reservationDate.formatted;
-        this.model.reservationLength = this.reservationForm.value.reservationLength;
+        let formValue = this.reservationForm.value;
+        this.model.Date = formValue.reservationDate.formatted;
+        this.model.reservationLength = formValue.reservationLength;
         console.log(this.model);
+
+        this.libraryService.reserve(this.model)
+                            .subscribe(
+                                reservation     => console.log("added reservation for book " + reservation.BookId),
+                                error           => this.errorMessage = <any>error);
+
+        this.reserving = false;
+        this.reservingChange.emit(this.reserving);
     }
 
 

@@ -8,7 +8,8 @@ namespace LibraryGradProject.Models
     public class BookReservation
     {
         public int BookReservationId { get; set; }
-        public DateTime Time { get; set; }
+        public DateTime Date { get; set; }
+        public int ReservationLength { get; set; }
         
         // Foreign Key to Book
         public int BookId { get; set; }

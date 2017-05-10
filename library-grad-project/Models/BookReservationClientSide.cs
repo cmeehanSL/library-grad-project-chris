@@ -8,7 +8,8 @@ namespace LibraryGradProject.Models
     public class BookReservationClientSide
     {
         public int BookId { get; set; }
-        public string Time { get; set; }
+        public string Date { get; set; }
+        public int ReservationLength { get; set; }
 
     }
 }

@@ -1,6 +1,6 @@
 export class BookReservation {
     BookReservationId: number;
-    Time: string;
+    Date: string;
     reservationLength: number;
 
     constructor(
