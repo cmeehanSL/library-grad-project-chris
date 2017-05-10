@@ -1,4 +1,8 @@
-.ng-invalid:not(form) {
+/*.ng-invalid:not(form) {
+    border-left: none;
+}*/
+
+.datePicker {
     border-left: none;
 }
 
@@ -11,4 +15,16 @@ h3 {
     line-height: 34px;
     margin: 0 0 0 0;
     vertical-align: middle;
+}
+
+.custom-select {
+    margin-left: 10px;
+    height: 34px;
+    line-height: 34px;
+}
+
+label {
+    font-family: Arial, Helvetica;
+    font-weight: lighter;
+    font-size: 18px;
 }
