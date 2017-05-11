@@ -8,5 +8,7 @@ namespace LibraryGradProject.Repos
         IEnumerable<T> GetAll();
         void Add(T entity);
         void Remove(int id);
+
+        IEnumerable<T> GetSpecial(int id);
     }
 }

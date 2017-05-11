@@ -13,7 +13,19 @@ namespace LibraryGradProject.Repos
         {
             this._contextFactory = contextFactory;
         }
-    
+
+        public IEnumerable<Book> GetSpecial(int id = 0)
+        {
+            using (var context = _contextFactory.Create())
+            {
+                //var reservedBooks = context.Books.ToArray().GroupBy(x => x.Book.BookId).Select(x => x.First());
+                var reservedBooks = context.Books.ToList().Where(book => book.BookReservations != null).OrderBy(x => x.BookReservations.Count);
+
+
+                return reservedBooks;
+            }
+        }
+
 
         //public BookRepository()
         //{

@@ -18,6 +18,7 @@ export class LibraryService {
     private books: Book[] = [];
     private booksUrl = 'http://localhost:51918/api/books'; // URL to web API
     private reservationsUrl = 'http://localhost:51918/api/bookreservations'; // URL to web API
+    private matchingReservationsUrl = 'http://localhost:51918/api/matchingreservations'; // URL to web API
 
     constructor(
         private http: Http,
@@ -37,7 +38,7 @@ export class LibraryService {
     private extractData(res: Response) {
         let body = res.json();
         console.log(util.inspect(res));
-        console.log(util.inspect(body));
+        console.log("body is " + util.inspect(body));
         return body || {};
     }
 
@@ -69,6 +70,14 @@ export class LibraryService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.reservationsUrl, newReservation, options)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
+
+    getReservations(bookId: number): Observable<BookReservation[]> {
+        let targetUrl = this.matchingReservationsUrl + "/" + bookId
+
+        return this.http.get(targetUrl)
                         .map(this.extractData)
                         .catch(this.handleError);
     }

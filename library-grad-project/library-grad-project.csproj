@@ -187,6 +187,7 @@
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MatchingReservationsController.cs" />
     <Compile Include="Models\BookReservationClientSide.cs" />
     <Compile Include="Models\LibraryContext.cs" />
     <Compile Include="Controllers\BookReservationsController.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Repos\BookRepository.cs" />
     <Compile Include="Repos\BookReservationRepository.cs" />
     <Compile Include="Repos\IRepository.cs" />
+    <Compile Include="Repos\MatchingReservationRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

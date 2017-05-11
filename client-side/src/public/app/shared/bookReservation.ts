@@ -1,7 +1,10 @@
+import { IMyDate } from 'mydatepicker';
+
 export class BookReservation {
     BookReservationId: number;
     Date: string;
-    reservationLength: number;
+    ReservationLength: number;
+    ParsedDate: IMyDate;
 
     constructor(
         public BookId: number

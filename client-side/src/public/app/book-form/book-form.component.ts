@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from '../shared/book';
 import { LibraryService } from '../services/library.service';
 import { isbnValidator } from '../shared/isbn-validator';
+var util = require('util');
 
 
 @Component({
@@ -57,7 +58,7 @@ export class BookFormComponent {
     onConfirm() {
         this.libraryService.create(this.model)
                             .subscribe(
-                                book    => console.log("added book " + book.Title),
+                                book    => console.log("added book " + util.inspect(book)),
                                 error   => this.errorMessage = <any>error);
 
         this.submitted = false;

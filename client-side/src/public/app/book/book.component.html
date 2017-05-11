@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <!-- <div *ngIf="reserving"> -->
-    <reservation [bookId]="book.BookId" [(reserving)]="reserving"></reservation>
-    <!-- </div> -->
+    <div *ngIf="reserving">
+        <reservation [bookId]="book.BookId" [(reserving)]="reserving"></reservation>
+    </div>
 </div>

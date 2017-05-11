@@ -26,7 +26,23 @@ namespace LibraryGradProject.Repos
             return newBookReservation;
         }
 
-        //private List<BookReservation> _bookReservationCollection = new List<BookReservation>();
+        public IEnumerable<BookReservation> GetSpecial(int book)
+        {
+            using (var context = _contextFactory.Create())
+            {
+                var matchingBooks = context.BookReservations
+                    .Where(res => res.BookId == book).ToList();
+
+
+                return matchingBooks;
+            }
+        }
+
+        public void Hi()
+        {
+            Console.WriteLine("hi");
+        }
+
 
         public void Add(BookReservation entity)
         {
@@ -50,7 +66,7 @@ namespace LibraryGradProject.Repos
 
                     System.Diagnostics.Debug.WriteLine("Days difference between reservations is:" + daysDifference);
 
-                    if (daysDifference <= 14)
+                    if (daysDifference <= entity.ReservationLength)
                     {
                         System.Diagnostics.Debug.WriteLine("Cannot create reservation as would clash with existing one");
                         return;
